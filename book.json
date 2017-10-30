@@ -1,0 +1,53 @@
+{
+    "author": "smallnest <smallnest@gmail.com>",
+    "description": "A guide about rpcx development",
+    "title": "rpcx Programming",
+    "links": {
+        "sharing": {
+            "all": null,
+            "facebook": null,
+            "google": null,
+            "twitter": null,
+            "weibo": null
+        },
+        "sidebar": {
+            "rpcx官方站点": "http://rpcx.site/"
+        }
+    },
+    "pdf": {
+        "fontSize": 12,
+        "footerTemplate": null,
+        "headerTemplate": null,
+        "margin": {
+            "bottom": 36,
+            "left": 62,
+            "right": 62,
+            "top": 36
+        },
+        "pageNumbers": false,
+        "paperSize": "a4"
+    },
+    "plugins": [
+        "anchors",
+        "multipart",
+        "-toc-ng",
+        "page-footer-ex",
+        "timeline",
+        "katex"
+    ],
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        },
+        "toc": {
+            "addClass": true,
+            "className": "toc"
+        },
+        "page-footer-ex": {
+            "copyright": "By <em>smallnest</em>",
+            "markdown": false,
+            "update_label": "<i>updated</i>",
+            "update_format": "YYYY-MM-DD HH:mm:ss"
+        }
+    }
+}
