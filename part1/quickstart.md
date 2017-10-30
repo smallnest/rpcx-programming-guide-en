@@ -76,7 +76,7 @@ Now you has defined one service `Arith` and implemented its `Mul` method. we wil
 You can use three lines to explore the above service:
 
 ```go
-    s := server.NewServer(nil)
+    s := server.NewServer()
 	s.RegisterName("Arith", new(Arith), "")
 	s.Serve("tcp", ":8972")
 ```
@@ -98,7 +98,7 @@ It uses the service type name as service name.
     // #1
     d := client.NewPeer2PeerDiscovery("tcp@"+*addr, "")
     // #2
-	xclient := client.NewXClient("Arith", "Mul", client.Failtry, client.RandomSelect, d, client.DefaultOption)
+	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
 	defer xclient.Close()
 
     // #3
@@ -111,7 +111,7 @@ It uses the service type name as service name.
     reply := &example.Reply{}
     
     // #5
-	err := xclient.Call(context.Background(), args, reply)
+	err := xclient.Call(context.Background(), "Mul", args, reply)
 	if err != nil {
 		log.Fatalf("failed to call: %v", err)
 	}
@@ -137,7 +137,7 @@ You can call the service synchronously:
 
 ```go
     d := client.NewPeer2PeerDiscovery("tcp@"+*addr2, "")
-	xclient := client.NewXClient("Arith", "Mul", client.Failtry, client.RandomSelect, d, client.DefaultOption)
+	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
 	defer xclient.Close()
 
 	args := &example.Args{
@@ -146,7 +146,7 @@ You can call the service synchronously:
 	}
 
 	reply := &example.Reply{}
-	call, err := xclient.Go(context.Background(), args, reply, nil)
+	call, err := xclient.Go(context.Background(), "Mul", args, reply, nil)
 	if err != nil {
 		log.Fatalf("failed to call: %v", err)
 	}
