@@ -33,7 +33,8 @@
         "-toc-ng",
         "page-footer-ex",
         "timeline",
-        "katex"
+        "katex",
+        "disqus"
     ],
     "pluginsConfig": {
         "theme-default": {
@@ -48,6 +49,9 @@
             "markdown": false,
             "update_label": "<i>updated</i>",
             "update_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "disqus": {
+            "shortName": "rpcx-programming"
         }
     }
 }
