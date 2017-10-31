@@ -1,7 +1,6 @@
 # Summary
 
 ## Part Ⅰ 
-* [RPC Introduction](part1/rpc.md)
 * [QuickStart](part1/quickstart.md)
 * [Server](part1/server.md)
 * [Client](part1/client.md)
