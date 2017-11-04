@@ -27,8 +27,9 @@
   * [Roundrobin](part3/selector.md)
   * [Consistent hashing](part3/selector.md)
   * [Weighted](part3/selector.md)
-  * [network quality](part3/selector.md)
+  * [Network quality](part3/selector.md)
   * [Geography](part3/selector.md)
+  * [Customized Selector](part3/selector.md)
 
 
 ## Part Ⅳ Plugins
@@ -41,3 +42,4 @@
 ## Part Ⅴ  Others
 * [Benchmark](part5/benchmark.md)
 * [UI Manager](part5/ui.md)
+* [protocol](part5/protocol.md)
