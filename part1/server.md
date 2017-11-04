@@ -9,7 +9,7 @@ You should start a TCP or UDP server to serve services.
 And you can aslo set some plugins to add features to the server.
 
 
-## Services
+## Service
 
 As service providers, you should define some service first.
 Currently rpcx only support exported `methods` as functions of service.
@@ -112,3 +112,30 @@ rpcx supports the below `network`:
 - reuseport: use `SO_REUSEPORT` socket option, only support Linux kernel 3.9+
 - quic: support [quic protocol](https://en.wikipedia.org/wiki/QUIC)
 - kcp: sopport [kcp protocol](https://github.com/skywind3000/kcp)
+
+
+There is a server example:
+
+```go
+package main
+
+import (
+	"flag"
+
+	example "github.com/rpcx-ecosystem/rpcx-examples3"
+	"github.com/smallnest/rpcx/server"
+)
+
+var (
+	addr = flag.String("addr", "localhost:8972", "server address")
+)
+
+func main() {
+	flag.Parse()
+
+	s := server.NewServer()
+	//s.RegisterName("Arith", new(example.Arith), "")
+	s.Register(new(example.Arith), "")
+	s.Serve("tcp", *addr)
+}
+```

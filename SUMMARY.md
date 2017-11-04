@@ -23,13 +23,13 @@
   * [Failover](part3/failmode.md#failover)
   * [Failtry](part3/failmode.md#failtry)
 * [Selector](part3/selector.md)
-  * [Random](part3/selector.md)
-  * [Roundrobin](part3/selector.md)
-  * [Consistent hashing](part3/selector.md)
-  * [Weighted](part3/selector.md)
-  * [Network quality](part3/selector.md)
-  * [Geography](part3/selector.md)
-  * [Customized Selector](part3/selector.md)
+  * [Random](part3/random_selector.md)
+  * [Roundrobin](part3/roundrobin_selector.md)
+  * [Consistent hashing](part3/hash_selector.md)
+  * [Weighted](part3/weighted_selector.md)
+  * [Network quality](part3/ping_selector.md)
+  * [Geography](part3/geo_selector.md)
+  * [Customized Selector](part3/user_selector.md)
 
 
 ## Part Ⅳ Plugins
