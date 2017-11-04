@@ -237,4 +237,12 @@ And for rare cases, you can use `Broadcast`、`Fork` methods of XClient
 FailMode and SelectMode are meanless for this method.
 
 
+You can use `NewXClient` to get a xclient instance.
+
+```go
+func NewXClient(servicePath string, failMode FailMode, selectMode SelectMode, discovery ServiceDiscovery, option Option) XClient
+```
+
+`NewXClient` must use the service name as the first argument, then failmode, selector, discovery and other options.
+
 
