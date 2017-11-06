@@ -101,7 +101,7 @@ Configuration for Client is simple.
 You need to set the zookeeper address and the same basePath to service.
 
 ```go client.go
-    d := client.NewZookeeperDiscovery(*basePath, []string{*zkAddr}, nil)
+    d := client.NewZookeeperDiscovery(*basePath, "Arith",[]string{*zkAddr}, nil)
 	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
     defer xclient.Close()
 ```
@@ -155,7 +155,7 @@ Configuration for Client is simple.
 You need to set the etcd address and the same basePath to service.
 
 ```go client.go
-    d := client.NewEtcdDiscovery(*basePath, []string{*etcdAddr}, nil)
+    d := client.NewEtcdDiscovery(*basePath, "Arith",[]string{*etcdAddr}, nil)
 	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
     defer xclient.Close()
 ```
@@ -164,7 +164,7 @@ You need to set the etcd address and the same basePath to service.
 ## consul {#consul}
 Consul is a highly available and distributed service discovery and KV store designed with support for the modern data center to make distributed systems and configuration easy.
 
-Services must use `ConsulRegisterPlugin` plugin to register their info into consul, while clients must use `COnsulDiscovery` to get services info.
+Services must use `ConsulRegisterPlugin` plugin to register their info into consul, while clients must use `ConsulDiscovery` to get services info.
 
 You must set ServiceAddress (`network@address`) and consul address. You should set the basePath so that your services won't be conflict with other serviced developed by others.
 
@@ -208,7 +208,113 @@ Configuration for Client is simple.
 You need to set the etcd address and the same basePath to service.
 
 ```go client.go
-    d := client.NewConsulDiscovery(*basePath, []string{*consulAddr}, nil)
+    d := client.NewConsulDiscovery(*basePath, "Arith",[]string{*consulAddr}, nil)
 	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
     defer xclient.Close()
+```
+
+
+
+## mDNS {#mdns}
+mDNS resolves host names to IP addresses within small networks that do not include a local name server. It is a zero-configuration service, using essentially the same programming interfaces, packet formats and operating semantics as the unicast Domain Name System (DNS). Although Stuart Cheshire designed mDNS to be stand-alone capable, it can work in concert with unicast DNS servers.
+
+The mDNS protocol is published as [RFC 6762](https://tools.ietf.org/html/rfc6762), uses IP multicast User Datagram Protocol (UDP) packets, and is implemented by the Apple Bonjour, Spotify Connect, Philips Hue, Google Chromecast, and open source Avahi (software) software packages. Android contains an mDNS implementation. mDNS has also been implemented in Windows 10, but its use is limited to discovering networked printers.
+
+mDNS can work in conjunction with DNS Service Discovery (DNS-SD), a companion zero-configuration technique specified separately in [RFC 6763](https://tools.ietf.org/html/rfc6763).
+
+
+Services must use `MDNSRegisterPlugin` plugin to register their info into mDNS, while clients must use `MDNSDiscovery` to get services info.
+
+You must set ServiceAddress (`network@address`). You should set the basePath so that your services won't be conflict with other serviced developed by others.
+
+You can set `Metrics` and rpcx will update throughputs periodically. If you want to update metrics you must add [Metrics] plugin in server.
+
+You can set `UpdateInterval` to refresh tps. If the server is down, it will be removed from mDNS automatically.
+
+
+```go server.go
+func main() {
+	flag.Parse()
+
+	s := server.NewServer()
+	addRegistryPlugin(s)
+
+	s.RegisterName("Arith", new(example.Arith), "")
+	s.Serve("tcp", *addr)
+}
+
+func addRegistryPlugin(s *server.Server) {
+
+	r := serverplugin.NewMDNSRegisterPlugin("tcp@"+*addr, 8972, metrics.NewRegistry(), time.Minute, "")
+	err := r.Start()
+	if err != nil {
+		log.Fatal(err)
+	}
+	s.Plugins.Add(r)
+}
+```
+
+
+
+
+Configuration for Client is simple.
+You need to set the etcd address and the same basePath to service.
+
+```go client.go
+    d := client.NewMDNSDiscovery("Arith", 10*time.Second, 10*time.Second, "")
+	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
+	defer xclient.Close()
+```
+
+## In process {#inprocess}
+Inprocess registry is a registry for test purpose. You won't use it in production.
+
+When you develop clients, you want to create mock services to integration test. You you can use Inprocess registry and change it to other registries when clients are deployed in production environment.
+
+This plugin uses `reflect` to invoke services in the same process.
+
+
+You add `client.InprocessClient` into services' plugin container. And clients use `InpreocessDiscovery` to find registered services to invoke.
+
+
+```go server.go
+func main() {
+	flag.Parse()
+
+	s := server.NewServer()
+	addRegistryPlugin(s)
+
+	s.RegisterName("Arith", new(example.Arith), "")
+
+	go func() {
+		s.Serve("tcp", *addr)
+	}()
+
+	d := client.NewInpreocessDiscovery()
+	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, client.DefaultOption)
+	defer xclient.Close()
+
+	args := &example.Args{
+		A: 10,
+		B: 20,
+	}
+
+	for i := 0; i < 100; i++ {
+
+		reply := &example.Reply{}
+		err := xclient.Call(context.Background(), "Mul", args, reply)
+		if err != nil {
+			log.Fatalf("failed to call: %v", err)
+		}
+
+		log.Printf("%d * %d = %d", args.A, args.B, reply.C)
+
+	}
+}
+
+func addRegistryPlugin(s *server.Server) {
+
+	r := client.InprocessClient
+	s.Plugins.Add(r)
+}
 ```
