@@ -33,23 +33,30 @@ Use `BigEndian` for size (integer type, int64, uint32, etc.)
 
 
 1、The first byte must be `0x08`. It is a magic number.
+
 2、The second byte is `version`. Current version is 0.
+
 3、MessageType can be:
-  - 0: Request
-  - 1: Response
+  0: Request
+  1: Response
+
 4、Heartbeat: bool. This message is heartbeat message or not
+
 5、Oneway: bool. Need return response or not.
+
 6、CompressType:
-  - 0: don't compress
-  - 1: Gzip
+  0: don't compress
+  1: Gzip
+
 7、MessageStatusType: indicates response is an error or a normal response
-  - 0: Normal
-  - 1: Error
+  0: Normal
+  1: Error
+
 8、SerializeType
-  - 0: use raw bytes
-  - 1: JSON
-  - 2: Protobuf
-  - 3: MessagePack
+  0: use raw bytes
+  1: JSON
+  2: Protobuf
+  3: MessagePack
 
 If one service fails to handle requests, it can return an error. It sets MessageStatusType of response is `1` (ERROR) and sets the error message in metadata of the response. The key for the error is **__rpcx_error__**, and the value is error message.
 
