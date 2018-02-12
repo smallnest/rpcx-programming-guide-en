@@ -36,7 +36,7 @@ In this mode, rpcx still try current selected nodes if it gets a failure. it wil
 
 In this mode, rpcx will send another request to one of servers if the first request has not returned in a given time. rpcx uses the the fastest returned response of the two requests. The given time is configured in `Option.BackupLatency`.
 
-If ypu want to learn more details about backup request pattern, you can read Jeff Dean's [Achieving Rapid Response Times in Large Online Services](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/44875.pdf)
+If you want to learn more details about backup request pattern, you can read Jeff Dean's [Achieving Rapid Response Times in Large Online Services](https://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/44875.pdf)
 
 > From http://highscalability.com/blog/2012/6/18/google-on-latency-tolerant-systems-making-a-predictable-whol.html
 > Backup requests are the idea of sending requests out to multiple replicas, but in a particular way. Here’s the example for a read operation for a distributed file system client:
