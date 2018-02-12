@@ -10,7 +10,7 @@
   * [UnixDomain](part1/transport.md#unixdomain)
   * [QUIC](part1/transport.md#quic)
   * [KCP](part1/transport.md#kcp)
-* [Function as Service](part1/function.go)
+* [Function as Service](part1/function.md)
 ## Part Ⅱ Registry
 * [Registry](part2/registry.md)
   * [Peer to Peer](part2/registry.md#peer2peer)
