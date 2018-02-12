@@ -42,7 +42,11 @@
 * [Auth](part4/auth.md)
 * [Plugin Development](part4/plugin-dev.md)
 
-## Part Ⅴ  Others
+## Part Ⅴ Others
 * [Benchmark](part5/benchmark.md)
 * [UI Manager](part5/ui.md)
 * [protocol](part5/protocol.md)
+
+## Part Ⅵ Gateway
+* [Gateway](part6/gateway.md)
+* [HTTP Invoke](part6/http_invoke.md)
