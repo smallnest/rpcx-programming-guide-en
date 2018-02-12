@@ -65,3 +65,5 @@ func main() {
 
 }
 ```
+
+Notice: **you must set a map[string]string as `share.ReqMetaDataKey` otherwise it will report an error**

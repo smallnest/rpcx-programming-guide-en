@@ -1,6 +1,6 @@
 # Summary
 
-## Part Ⅰ 
+## Part Ⅰ Basic
 * [QuickStart](part1/quickstart.md)
 * [Server](part1/server.md)
 * [Client](part1/client.md)
@@ -10,8 +10,8 @@
   * [UnixDomain](part1/transport.md#unixdomain)
   * [QUIC](part1/transport.md#quic)
   * [KCP](part1/transport.md#kcp)
-
-## Part Ⅱ
+* [Function as Service](part1/function.go)
+## Part Ⅱ Registry
 * [Registry](part2/registry.md)
   * [Peer to Peer](part2/registry.md#peer2peer)
   * [Peer to Multiple](part2/registry.md#multiple)
@@ -22,7 +22,7 @@
   * [In process](part2/registry.md#inprocess)
 
 
-## Part Ⅱ
+## Part Ⅱ Features
 * [Codec](part3/codec.md)
 * [FailMode](part3/failmode.md)
   * [Failfast](part3/failmode.md#failfast)
@@ -39,6 +39,9 @@
   * [Network quality](part3/selector.md#ping_selector)
   * [Geography](part3/selector.md#geo_selector)
   * [Customized Selector](part3/selector.md#user_selector)
+* [Timeout](part3/timeout.md)
+* [Metadata](part3/metadata.md)
+* [Heartbeat](part3/heartbeat.md)
 
 
 ## Part Ⅳ Plugins
