@@ -1,5 +1,7 @@
 # Codec
 
+**Example:** [broadcast](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/codec/gob)
+
 Currently rpcx supports four type of codec:
 
 

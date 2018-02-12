@@ -1,5 +1,7 @@
 # Alias
 
+**Example:** [alias](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/alias)
+
 This plugin can alias a service and its method.
 
 For example, the below code use `a.b.c.d` as the alias of `Arith`, and `Times` as the alias of `Mul`.

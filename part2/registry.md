@@ -13,6 +13,9 @@ rpcx provides out-of-box registry for zookeeper, etcd, consul, mDNS, and it aslo
 
 ## peer2peer {#peer2peer}
 
+**Example:** [102basic](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/102basic)
+
+
 Actually it has no registry. Clients connect services directly. It can be used in a small system and there is only one node for services. You can do few changes to change another registry when your system scales.
 
 Server doesn't need to do more configurations.
@@ -35,6 +38,9 @@ Since there is one node, the selector is meanless.
 
 ## peer2multiple {#multiple}
 
+**Example:** [multiple](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/registry/multiple)
+
+
 If you has multiple services but has no a center registry. You can configure addresses of services in client programatically.
 
 Server doesn't need to do more configurations.
@@ -54,6 +60,9 @@ func (d *MultipleServersDiscovery) Update(pairs []*KVPair)
 ```
 
 ## zookeeper {#zookeeper}
+
+**Example:** [zookeeper](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/registry/zookeeper)
+
 
 Apache ZooKeeper is a software project of the Apache Software Foundation. It is essentially a distributed hierarchical key-value store, which is used to provide a distributed configuration service, synchronization service, and naming registry for large distributed systems.
 
@@ -109,6 +118,9 @@ You need to set the zookeeper address and the same basePath to service.
 
 ## etcd {#etcd}
 
+**Example:** [etcd](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/registry/etcd)
+
+
 etcd is a distributed, reliable key-value store for the most critical data of a distributed system.
 
 Services must use `EtcdRegisterPlugin` plugin to register their info into etcd, while clients must use `EtcdDiscovery` to get services info.
@@ -162,6 +174,10 @@ You need to set the etcd address and the same basePath to service.
 
 
 ## consul {#consul}
+
+**Example:** [consul](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/registry/consul)
+
+
 Consul is a highly available and distributed service discovery and KV store designed with support for the modern data center to make distributed systems and configuration easy.
 
 Services must use `ConsulRegisterPlugin` plugin to register their info into consul, while clients must use `ConsulDiscovery` to get services info.
@@ -216,6 +232,10 @@ You need to set the etcd address and the same basePath to service.
 
 
 ## mDNS {#mdns}
+
+**Example:** [mDNS](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/registry/mdns)
+
+
 mDNS resolves host names to IP addresses within small networks that do not include a local name server. It is a zero-configuration service, using essentially the same programming interfaces, packet formats and operating semantics as the unicast Domain Name System (DNS). Although Stuart Cheshire designed mDNS to be stand-alone capable, it can work in concert with unicast DNS servers.
 
 The mDNS protocol is published as [RFC 6762](https://tools.ietf.org/html/rfc6762), uses IP multicast User Datagram Protocol (UDP) packets, and is implemented by the Apple Bonjour, Spotify Connect, Philips Hue, Google Chromecast, and open source Avahi (software) software packages. Android contains an mDNS implementation. mDNS has also been implemented in Windows 10, but its use is limited to discovering networked printers.
@@ -267,6 +287,11 @@ You need to set the etcd address and the same basePath to service.
 ```
 
 ## In process {#inprocess}
+
+**Example:** [inprocess](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/registry/inprocess)
+
+
+
 Inprocess registry is a registry for test purpose. You won't use it in production.
 
 When you develop clients, you want to create mock services to integration test. You you can use Inprocess registry and change it to other registries when clients are deployed in production environment.

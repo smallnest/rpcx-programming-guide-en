@@ -10,14 +10,22 @@ rpcx supports multiple selectors and  you can set it when you create XClient.
 
 ## RandomSelect {#random_selector}
 
+**Example:** [random](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/random)
+
 This selector will pick a node randomly.
 
 
 ## Roundrobin {#roundrobin_selector}
 
+**Example:** [roundrobin](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/roundrobin)
+
+
 select the node in a round-robin fashion.
 
 ## WeightedRoundRobin {#weighted_selector}
+
+**Example:** [weighted](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/weighted)
+
 
 use the [smooth weighted round-robin balancing](https://github.com/phusion/nginx/commit/27e94984486058d73157038f7950a0a36ecc6e35), implemented the same algorithm in Nginx.
 
@@ -32,6 +40,9 @@ among peers.
 
 
 ## WeightedICMP {#ping_selector}
+
+**Example:** [ping](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/ping)
+
 use the result of ping (ICMP) to set weight of each node. The shorter ping time, the higher weight of the node.
 
 assume `t` is cost time of ping:
@@ -44,11 +55,17 @@ assume `t` is cost time of ping:
 
 ## ConsistentHash {#hash_selector}
 
+**Example:** [hash](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/hash)
+
+
 Use [JumpConsistentHash](https://arxiv.org/abs/1406.2294) to router the same node for the same servicePath, serviceMethod and arguments. It is a fast consistent hash algorithm.
 
 If nodes have changed, the algorithm will re-calculate consistent hash.
 
 ## Geography {#geo_selector}
+
+**Example:** [geo](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/geo)
+
 
 We want to clients to select a closest service to invoke.
 
@@ -63,6 +80,8 @@ func (c *xClient) ConfigGeoSelector(latitude, longitude float64)
 ```
 
 ## SelectByUser Selector {#user_selector}
+
+**Example:** [customized](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/selector/customized)
 
 If the above selectors are not suitable for you, you can develop a customized selector.
 

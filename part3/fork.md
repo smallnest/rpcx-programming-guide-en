@@ -1,5 +1,8 @@
 # Fork
 
+**Example:** [fork](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/fork)
+
+
 `Fork` is a method of `XClient` and you can use it to send a request to all servers that contains this service.
 
 If any of servers returns response whithout an error, `Fork` will return for this XClient. If all servers return errors, `Fork` returns an error of those errors.

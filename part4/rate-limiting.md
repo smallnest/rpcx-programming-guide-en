@@ -1,5 +1,7 @@
 # rate-limiting
 
+**Example:** [rate-limiting](https://github.com/smallnest/rpcx/blob/master/serverplugin/rate_limiting.go)
+
 This plugin uses [juju/ratelimit](https://github.com/juju/ratelimit) to limit requests.
 
 Use `func NewRateLimitingPlugin(fillInterval time.Duration, capacity int64) *RateLimitingPlugin` to create a new plugin.

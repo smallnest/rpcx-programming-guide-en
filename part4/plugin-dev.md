@@ -3,6 +3,9 @@
 
 ## Server Plugin
 
+**Example:** [trace](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/trace)
+
+
 [go doc](https://godoc.org/github.com/smallnest/rpcx/server#PostConnAcceptPlugin)
 
 ```go

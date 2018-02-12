@@ -1,5 +1,7 @@
 # Auth
 
+**Example:** [auth](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/auth)
+
 For the security, only authorized clients can invoke services.
 
 Clients must set an authorization token which can gets from OAuth/OAuth2 or granted access token.
