@@ -42,6 +42,8 @@
 * [Timeout](part3/timeout.md)
 * [Metadata](part3/metadata.md)
 * [Heartbeat](part3/heartbeat.md)
+* [Group](part3/group.md)
+* [State](part3/state.md)
 
 
 ## Part Ⅳ Plugins

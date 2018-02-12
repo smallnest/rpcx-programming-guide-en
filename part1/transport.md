@@ -65,3 +65,64 @@ the network name is `reuseport`.
 **Example:** [reuseport](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/reuseport)
 
 It uses `tcp` protocol and set [SO_REUSEPORT](https://lwn.net/Articles/542629/) socket option for linux and unix servers.
+
+
+## TLS
+
+**Example:** [TLS](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/tls)
+
+
+You can set TLS in server:
+
+```go
+func main() {
+	flag.Parse()
+
+	cert, err := tls.LoadX509KeyPair("server.pem", "server.key")
+	if err != nil {
+		log.Print(err)
+		return
+	}
+
+	config := &tls.Config{Certificates: []tls.Certificate{cert}}
+
+	s := server.NewServer(server.WithTLSConfig(config))
+	s.RegisterName("Arith", new(example.Arith), "")
+	s.Serve("tcp", *addr)
+}
+```
+
+And set TLS in client:
+
+```go
+func main() {
+	flag.Parse()
+
+	d := client.NewPeer2PeerDiscovery("tcp@"+*addr, "")
+
+	option := client.DefaultOption
+
+	conf := &tls.Config{
+		InsecureSkipVerify: true,
+	}
+
+	option.TLSConfig = conf
+
+	xclient := client.NewXClient("Arith", client.Failtry, client.RandomSelect, d, option)
+	defer xclient.Close()
+
+	args := &example.Args{
+		A: 10,
+		B: 20,
+	}
+
+	reply := &example.Reply{}
+	err := xclient.Call(context.Background(), "Mul", args, reply)
+	if err != nil {
+		log.Fatalf("failed to call: %v", err)
+	}
+
+	log.Printf("%d * %d = %d", args.A, args.B, reply.C)
+
+}
+```
