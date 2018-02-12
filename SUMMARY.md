@@ -44,6 +44,7 @@
 * [Heartbeat](part3/heartbeat.md)
 * [Group](part3/group.md)
 * [State](part3/state.md)
+* [Circuit Breaker](part3/circuit_breaker.md)
 
 
 ## Part Ⅳ Plugins
@@ -61,3 +62,4 @@
 ## Part Ⅵ Gateway
 * [Gateway](part6/gateway.md)
 * [HTTP Invoke](part6/http_invoke.md)
+* [Bidirectional](part6/bidirectional.md)
