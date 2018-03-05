@@ -22,7 +22,7 @@
   * [In process](part2/registry.md#inprocess)
 
 
-## Part Ⅱ Features
+## Part Ⅲ Features
 * [Codec](part3/codec.md)
 * [FailMode](part3/failmode.md)
   * [Failfast](part3/failmode.md#failfast)
