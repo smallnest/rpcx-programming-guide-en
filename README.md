@@ -2,7 +2,7 @@
 
 [rpcx](http://rpcx.site) is a RPC framework, faster, more features.
 
-[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&logo=github&label=Stars)](https://github.com/smallnest/rpcx)  [![GitHub forks](https://img.shields.io/github/forks/badges/shields.svg?style=social&logo=github&label=Fork)](https://github.com/smallnest/rpcx)
+[![GitHub stars](https://img.shields.io/github/stars/smallnest/rpcx.svg?style=social&logo=github&label=Stars)](https://github.com/smallnest/rpcx)  [![GitHub forks](https://img.shields.io/github/forks/smallnest/rpcx.svg?style=social&logo=github&label=Fork)](https://github.com/smallnest/rpcx)
 
 rpcx 2.0 and below extends Go standard rpc package but rpcx 3.0 has been refactored and doesn't use Go standard rpc anymore。
 
