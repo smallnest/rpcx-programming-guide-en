@@ -103,13 +103,13 @@ XClient use the single connection to one service node and it caches the connecti
 
 rpcx support a lot of service discovery and you can aslo implement your service discovery.
 
-- * [Peer to Peer](part2/registry.md#peer2peer): the client connects the single service directly. It acts like the `client` type.
-  * [Peer to Multiple](part2/registry.md#multiple): the client can connnect multiple services. Ther services are configured programmatically.
-  * [Zookeeper](part2/registry.md#zookeeper): find the services via zookeeper.
-  * [Etcd](part2/registry.md#etcd)： find the service via etcd.
-  * [Consul](part2/registry.md#consul): find the service via consul.
-  * [mDNS](part2/registry.md#mdns): find the service via mDNS that support local service discovery.
-  * [In process](part2/registry.md#inprocess): find services in the same process. Clients call services in process and they don't commnucaite via TCP or UDP. It is convenient in test.
+- * [Peer to Peer](../part2/registry.md#peer2peer): the client connects the single service directly. It acts like the `client` type.
+  * [Peer to Multiple](../part2/registry.md#multiple): the client can connnect multiple services. Ther services are configured programmatically.
+  * [Zookeeper](../part2/registry.md#zookeeper): find the services via zookeeper.
+  * [Etcd](../part2/registry.md#etcd)： find the service via etcd.
+  * [Consul](../part2/registry.md#consul): find the service via consul.
+  * [mDNS](../part2/registry.md#mdns): find the service via mDNS that support local service discovery.
+  * [In process](../part2/registry.md#inprocess): find services in the same process. Clients call services in process and they don't commnucaite via TCP or UDP. It is convenient in test.
 
 
 There is a sync rpcx example:
@@ -160,20 +160,20 @@ In a large scale rpc system, there are a lot of service nodes to provide a same 
 
 rpcx support fail mode:
 
-- [Failfast](part3/failmode.md#failfast)：  return the error immediately if call failed
-- [Failover](part3/failmode.md#failover) : select another node until reach max retries
-- [Failtry](part3/failmode.md#failtry): select the same node and retry, until reach max retrirs
+- [Failfast](../part3/failmode.md#failfast)：  return the error immediately if call failed
+- [Failover](../part3/failmode.md#failover) : select another node until reach max retries
+- [Failtry](../part3/failmode.md#failtry): select the same node and retry, until reach max retrirs
 
 
 For the load balancing, rpcs provides a lot of selectors:
 
- * [Random](part3/random_selector.md): select the nodes randomly
-  * [Roundrobin](part3/roundrobin_selector.md) : select the node by roundrobin
-  * [Consistent hashing](part3/hash_selector.md): select the same node if servicePath, serviceMethod and Args. It uses the [jump consistent hash](https://arxiv.org/abs/1406.2294) and is very fast.
-  * [Weighted](part3/weighted_selector.md): use the weighted which is configured in metadata of services(`weight=xxx`). The algorithm is like nginx implementation(smooth weighted algorithm)
-  * [Network quality](part3/ping_selector.md): It uses the `ping` results. The better the quality of the network, the higher the probability of election of nodes
-  * [Geography](part3/geo_selector.md): If there are multiple datacenters, clients perfer to connect service in the same datacenter.
-  * [Customized Selector](part3/user_selector.md): If the above selectors are not suitable for you, you can use your customized selector. For example, one of rpcx customers has defined its selector for two datacenters because they can't use `Network quality` because of some limits.
+ * [Random](../part3/selector.md#random_selector): select the nodes randomly
+  * [Roundrobin](../part3/selector.md#roundrobin_selector) : select the node by roundrobin
+  * [Consistent hashing](../part3/selector.md#hash_selector): select the same node if servicePath, serviceMethod and Args. It uses the [jump consistent hash](https://arxiv.org/abs/1406.2294) and is very fast.
+  * [Weighted](../part3/selector.md#weighted_selector): use the weighted which is configured in metadata of services(`weight=xxx`). The algorithm is like nginx implementation(smooth weighted algorithm)
+  * [Network quality](../part3/selector.md#ping_selector): It uses the `ping` results. The better the quality of the network, the higher the probability of election of nodes
+  * [Geography](../part3/selector.md#geo_selector): If there are multiple datacenters, clients perfer to connect service in the same datacenter.
+  * [Customized Selector](../part3/selector.md#user_selector): If the above selectors are not suitable for you, you can use your customized selector. For example, one of rpcx customers has defined its selector for two datacenters because they can't use `Network quality` because of some limits.
 
 
 
