@@ -4,7 +4,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/smallnest/rpcx.svg?style=social&logo=github&label=Stars)](https://github.com/smallnest/rpcx)  [![GitHub forks](https://img.shields.io/github/forks/smallnest/rpcx.svg?style=social&logo=github&label=Fork)](https://github.com/smallnest/rpcx)
 
-rpcx 2.0 and below extends Go standard rpc package but rpcx 3.0 has been refactored and doesn't use Go standard rpc anymore。
+rpcx 2.0 and below extends Go standard rpc package but rpcx 3.0 has been refactored and doesn't use Go standard rpc lib anymore。
 
 RPCX has developed for those targets:
 
