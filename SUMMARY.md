@@ -30,7 +30,7 @@
   * [Failtry](part3/failmode.md#failtry)
   * [Failbackup](part3/failmode.md#failbackup)
 * [Fork](part3/fork.md)
-* [Broadcase](part3/broadcast.md)
+* [Broadcast](part3/broadcast.md)
 * [Selector](part3/selector.md)
   * [Random](part3/selector.md#random_selector)
   * [Roundrobin](part3/selector.md#roundrobin_selector)
