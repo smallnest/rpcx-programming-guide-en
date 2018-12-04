@@ -19,11 +19,10 @@ Currently rpcx only support exported `methods` as functions of service.
 And the exported method must satisfy the below rules:
 
 - exported method of exported type
-- three arguments, the first is of context.Context, both of exported type or three arguments
+- three arguments, the first is of context.Context, both of exported type for three arguments
 - the third argument is a pointer
 - one return value, of type error
 
-in rpcx 3.1 we want to add register raw functions that satisfy last three rules, but for rpcx 3.0, you must use `method` to implement services.
 
 you can use `RegisterName` to register methods of `rcvr` and name of this service is `name`.
 If you use `Register`, the generated service name is type name of `rcvr`.
