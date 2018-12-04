@@ -169,7 +169,7 @@ For the load balancing, rpcs provides a lot of selectors:
 
  * [Random](../part3/selector.md#random_selector): select the nodes randomly
   * [Roundrobin](../part3/selector.md#roundrobin_selector) : select the node by roundrobin
-  * [Consistent hashing](../part3/selector.md#hash_selector): select the same node if servicePath, serviceMethod and Args. It uses the [jump consistent hash](https://arxiv.org/abs/1406.2294) and is very fast.
+  * [Consistent hashing](../part3/selector.md#hash_selector): select the same node if servicePath, serviceMethod and Args are same. It uses the [jump consistent hash](https://arxiv.org/abs/1406.2294) and is very fast.
   * [Weighted](../part3/selector.md#weighted_selector): use the weighted which is configured in metadata of services(`weight=xxx`). The algorithm is like nginx implementation(smooth weighted algorithm)
   * [Network quality](../part3/selector.md#ping_selector): It uses the `ping` results. The better the quality of the network, the higher the probability of election of nodes
   * [Geography](../part3/selector.md#geo_selector): If there are multiple datacenters, clients perfer to connect service in the same datacenter.
