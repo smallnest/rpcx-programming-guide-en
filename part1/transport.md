@@ -55,6 +55,8 @@ the network name is `quic`.
 
 the network is `kcp`.
 
+Must set **Timeout** option to avoid client hanging， because client clients by using kcp can't monitor connections' breaking when services are down. 
+
 **Example:** [kcp](https://github.com/rpcx-ecosystem/rpcx-examples3/tree/master/kcp)
 
 
