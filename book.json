@@ -11,7 +11,8 @@
             "weibo": null
         },
         "sidebar": {
-            "rpcx官方站点": "http://rpcx.site/"
+            "rpcx": "https://rpcx.site/",
+            "中文文档": "http://cn.doc.rpcx.site/"
         }
     },
     "pdf": {
