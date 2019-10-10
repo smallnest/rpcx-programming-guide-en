@@ -1,6 +1,6 @@
 # RPCX Introduction
 
-[rpcx](http://rpcx.site) is a RPC framework, faster, more features.
+[rpcx](http://rpcx.io) is a RPC framework, faster, more features.
 
 [![GitHub stars](https://img.shields.io/github/stars/smallnest/rpcx.svg?style=social&logo=github&label=Stars)](https://github.com/smallnest/rpcx)  [![GitHub forks](https://img.shields.io/github/forks/smallnest/rpcx.svg?style=social&logo=github&label=Fork)](https://github.com/smallnest/rpcx)
 
